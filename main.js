@@ -4,6 +4,7 @@ WristX = "";
 WristY = "";
 score = "";
 
+
 var paddle2 =10,paddle1=10;
 
 var paddle1X = 10,paddle1Height = 110;
@@ -23,7 +24,7 @@ var ball = {
     dx:3,
     dy:3
 }
-
+gamestat = "";
 function setup(){
   var canvas =  createCanvas(700,600);
   canvas.center();
@@ -65,15 +66,16 @@ function draw(){
     stroke("#34e8eb");
     circle(WristX, WristY, 600);
   }
-   paddleInCanvas();
  
-   //left paddle
-   fill(250,0,0);
+   if(gamestat == "start"){
+     document.getElementById("status").innerHTML = "game is loaded";
+     paddleInCanvas();
+     fill(250,0,0);
     stroke(0,0,250);
     strokeWeight(0.5);
    paddle1Y = mouseY; 
    rect(paddle1X,paddle1Y,paddle1,paddle1Height,100);
-   
+
    
     //pc computer paddle
     fill("#FFA500");
@@ -92,7 +94,7 @@ function draw(){
    //function move call which in very important
     move();
 }
-
+ }
 
 
 //function reset when ball does notcame in the contact of padde
